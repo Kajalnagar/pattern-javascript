@@ -1,22 +1,24 @@
-let pattern = "";
+let n = 5;
 
-for (let i = 1; i <= 7; i++) {
-    for (let j = 1; j <= 5; j++) {
+for (let i = 1; i <= n; i++) {
+    let row = "";
 
-        if (
-            j === 1 ||                         // Left line
-            (i === 1 && j < 5) ||              // Top line
-            (i === 4 && j < 5) ||              // Middle line
-            (i === 7 && j < 5) ||              // Bottom line
-            (j === 5 && (i !== 1 && i !== 4 && i !== 7))  // Right curve
-        ) {
-            pattern += "*";
-        } else {
-            pattern += " ";
-        }
+    for (let j = i; j < n; j++) row += " ";  // leading spaces
 
+    // left star
+    row += "*";
+
+    // middle part
+    if (i == 3) {
+        // middle full line
+        for (let k = 1; k < i; k++) row += "*";
+    } else {
+        // hollow space
+        for (let k = 1; k < i; k++) row += " ";
     }
-    pattern += "\n";
-}
 
-console.log(pattern);
+    // right star (except first row)
+    if (i > 1) row += "*";
+
+    console.log(row);
+}
