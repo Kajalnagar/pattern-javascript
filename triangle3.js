@@ -1,23 +1,38 @@
+/*
+*   *
+****
+****
+****
+*  *
+*/
+
+
 function printPattern() {
-  const rows = 7;
+  const rows = 5;
   const cols = 3;
   let pattern = "";
 
   for (let i = 1; i <= rows; i++) {
     for (let j = 1; j <= cols; j++) {
+
       if (j === 1 || j === cols) {
-        pattern += "*";
+        pattern += "*";     // left & right border
       } else {
-       
         if (i === 1 || i === rows) {
-          pattern += " ";
+          pattern += " ";   // top & bottom hollow
         } else {
-          pattern += "*";
+          pattern += "*";   // middle solid
         }
       }
     }
-    pattern += "\n";
+    pattern += "\n";        // new line after each row
   }
+
+  console.log(pattern);     // print final pattern once
+}
+
+printPattern();
+
 
   console.log(pattern);
 }
